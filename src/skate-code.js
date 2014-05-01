@@ -54,7 +54,7 @@
     return len > 0 ? new Array(len + 1).join(' ') : '';
   }
 
-  return function(str) {
+  function trim (str) {
     if (str) {
       return str.replace(/^\s+/, '').replace(/\s+$/, '');
     }
