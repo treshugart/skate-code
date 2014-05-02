@@ -1,6 +1,6 @@
 (function (skate, hjs) {
   skate('skate-code', {
-    type: skate.types.ANY,
+    type: skate.types.ATTR,
     ready: function (element) {
       var html = element.innerHTML;
       var lines = html.split("\n");
@@ -36,8 +36,8 @@
         var nl = document.createTextNode("\n");
 
         line = trim(line);
-        line = line.replace('&gt;', '>');
-        line = line.replace('&lt;', '<');
+        line = line.replace(/&gt;/g, '>');
+        line = line.replace(/&lt;/g, '<');
 
         num.className = 'code-line-number';
         num.innerHTML = index + 1;
