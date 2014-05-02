@@ -1,9 +1,15 @@
 (function (skate, hjs) {
   skate('skate-code', {
-    type: skate.types.TAG,
+    type: skate.types.ANY,
     ready: function (element) {
       var html = element.innerHTML;
       var lines = html.split("\n");
+      var isTextarea = element.tagName === 'TEXTAREA';
+
+      // Textareas allow tags like <script> and <link> to not get executed.
+      if (isTextarea) {
+        element = document.createElement('div');
+      }
 
       // Trim leading empty lines.
       if (!trim(lines[0])) {
@@ -41,6 +47,10 @@
         pre.appendChild(code);
         pre.appendChild(nl);
       });
+
+      if (isTextarea) {
+        return element;
+      }
     }
   });
 
