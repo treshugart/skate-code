@@ -1,6 +1,5 @@
 (function (skate, hjs) {
   skate('skate-code', {
-    type: skate.types.ATTR,
     ready: function (element) {
       var html = element.innerHTML;
       var lines = html.split("\n");
