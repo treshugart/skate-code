@@ -8,7 +8,9 @@
 
       // Textareas allow tags like <script> and <link> to not get executed.
       if (isTextarea) {
-        element = document.createElement('div');
+        var replacement = document.createElement('div');
+        replacement.className = element.className;
+        element = replacement;
       }
 
       // Trim leading empty lines.
