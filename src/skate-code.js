@@ -7,9 +7,7 @@
 
       // Textareas allow tags like <script> and <link> to not get executed.
       if (isTextarea) {
-        var replacement = document.createElement('div');
-        replacement.className = element.className;
-        element = replacement;
+        element = document.createElement('div');
       }
 
       // Trim leading empty lines.
@@ -26,6 +24,7 @@
       var pre = document.createElement('pre');
 
       element.innerHTML = '';
+      element.className = 'skate-code-block';
       element.appendChild(pre);
 
       lines.forEach(function (line, index) {
@@ -38,10 +37,10 @@
         line = line.replace(/&gt;/g, '>');
         line = line.replace(/&lt;/g, '<');
 
-        num.className = 'code-line-number';
+        num.className = 'skate-code-line-number';
         num.innerHTML = index + 1;
 
-        code.className = 'code-line-content';
+        code.className = 'skate-code-line-content';
         code.innerHTML = setIndentLength(indent) + hjs.highlight(element.getAttribute('lang') || 'html', line).value;
 
         pre.appendChild(num);
