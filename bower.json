@@ -3,6 +3,6 @@
   "version": "0.0.0",
   "dependencies": {
     "highlightjs": "~8.0.0",
-    "skate": "~0.4.0"
+    "skate": "*"
   }
 }
