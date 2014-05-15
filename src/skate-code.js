@@ -65,8 +65,6 @@
   }
 
   function trim (str) {
-    if (str) {
-      return str.replace(/^\s+/, '').replace(/\s+$/, '');
-    }
+    return str ? str.replace(/^\s+/, '').replace(/\s+$/, '') : str;
   };
 }(window.skate, window.hljs));
